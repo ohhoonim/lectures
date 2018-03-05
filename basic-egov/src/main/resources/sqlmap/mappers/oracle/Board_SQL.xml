@@ -3,7 +3,30 @@
 
 <mapper namespace="Board">
 
+	<resultMap id="empvo" type="com.ohhoonim.vo.EmpVo">
+		<result property="empno" 	column="EMPNO" />
+		<result property="ename" 	column="ENAME" />
+		<result property="sal" 		column="SAL" />
+		<result property="manager" 	column="MANAGER" />
+		<result property="deptno" 	column="DEPTNO" />
+		<result property="hiredate" column="HIREDATE" />
+		<result property="age" 		column="AGE" />
+		<result property="comm" 	column="COMM" />
+	</resultMap>
+
+	<select id="boardList" resultMap="empvo">
+		select EMPNO, ENAME, SAL, MANAGER, 
+				DEPTNO, HIREDATE, AGE, COMM 
+		  from EMP 
+	</select>
 	
+	<select id="boardDetail" resultMap="empvo">
+		select EMPNO, ENAME, SAL, MANAGER, 
+				DEPTNO, HIREDATE, AGE, COMM 
+		  from EMP
+		  where
+		  	EMPNO = #{empno}
+	</select>
 	
 </mapper>
 
