@@ -28,6 +28,12 @@ public class BoardServiceImpl implements BoardService {
 		return empvo;
 	}
 
+	@Override
+	public int boardRemove(String empno) {
+		int resultCnt = boardDao.boardRemove(empno);
+		return resultCnt;
+	}
+
 }
 
 

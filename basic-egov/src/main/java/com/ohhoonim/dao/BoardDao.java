@@ -17,4 +17,8 @@ public class BoardDao extends Mapper {
 		return selectOne("boardDetail", empno);
 	}
 
+	public int boardRemove(String empno) {
+		return delete("boardRemove", empno);
+	}
+
 }

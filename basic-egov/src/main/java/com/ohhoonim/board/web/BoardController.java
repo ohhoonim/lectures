@@ -43,8 +43,15 @@ public class BoardController {
 	
 	@RequestMapping("/board/boardRemove.do")
 	public String boardRemove(@RequestParam Map<String, String> req, ModelMap model ) {
+		String empno = req.get("empno");
+		
+		int resultCnt = boardService.boardRemove(empno);
+		// insert, update, delete 쿼리문에 대한 결과값은 
+		// int 형이다. 
+		// ==> x 행이 삭제되었습니다. 
 		
 		return "redirect:/board/boardList.do";
+		// redirect가 붙어있으면 jsp가 아니라 url을 호출하는 것임.
 	}
 	
 	@RequestMapping("/board/boardAddView.do")

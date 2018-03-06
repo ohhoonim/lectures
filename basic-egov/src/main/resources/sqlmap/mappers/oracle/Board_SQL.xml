@@ -28,6 +28,11 @@
 		  	EMPNO = #{empno}
 	</select>
 	
+	<delete id="boardRemove">
+		delete emp
+		where EMPNO = #{empno}
+	</delete>
+	
 </mapper>
 
 

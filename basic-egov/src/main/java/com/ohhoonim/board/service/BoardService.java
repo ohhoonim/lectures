@@ -10,4 +10,6 @@ public interface BoardService {
 
 	EmpVo boardDetail(String empno);
 
+	int boardRemove(String empno);
+
 }

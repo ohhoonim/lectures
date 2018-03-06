@@ -12,17 +12,20 @@
 	<body>
 		<h1>상세보기</h1>
 		<hr>
-		<a href="<%=contextRoot%>/board/boardRemove.do">삭제</a><br/>
+		<!-- 
+		<a href="<%=contextRoot%>/board/boardRemove.do?empno=<%=empvo.getEmpno()%>">삭제</a><br/>
+		 -->
+		<a href="<%=contextRoot%>/board/boardRemove.do?empno=${empvo.empno}">삭제</a><br/>
 		<a href="<%=contextRoot%>/board/boardModifyView.do">수정화면이동</a>
 		<hr>
-		empno : <%=empvo.getEmpno() %><br>
-		Ename : <%=empvo.getEname() %><br>
-		Sal : <%=empvo.getSal() %><br>
-		Manager : <%=empvo.getManager() %><br>
-		Deptno : <%=empvo.getDeptno() %><br>
-		Hiredate : <%=empvo.getHiredate() %><br>
-		Age : <%=empvo.getAge() %><br>
-		Comm : <%=empvo.getComm() %><br>
+		empno : ${empvo.empno}<br>
+		Ename : ${empvo.ename}<br>
+		Sal : ${empvo.sal}<br>
+		Manager : ${empvo.manager}<br>
+		Deptno : ${empvo.deptno}<br>
+		Hiredate : ${empvo.hiredate}<br>
+		Age : ${empvo.age}<br>
+		Comm : ${empvo.comm}<br>
 		
 		
 	</body>
