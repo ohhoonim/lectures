@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ohhoonim.board.service.BoardService;
 import com.ohhoonim.dao.BoardDao;
+import com.ohhoonim.vo.DeptVo;
 import com.ohhoonim.vo.EmpVo;
 
 @Service("boardService")
@@ -32,6 +33,18 @@ public class BoardServiceImpl implements BoardService {
 	public int boardRemove(String empno) {
 		int resultCnt = boardDao.boardRemove(empno);
 		return resultCnt;
+	}
+
+	@Override
+	public int boardAdd(EmpVo vo) {
+		int resultCnt = boardDao.boardAdd(vo);
+		return 0;
+	}
+
+	@Override
+	public List<DeptVo> deptList() {
+		List<DeptVo> deptList = boardDao.deptList();
+		return deptList;
 	}
 
 }

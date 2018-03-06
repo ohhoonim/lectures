@@ -33,6 +33,26 @@
 		where EMPNO = #{empno}
 	</delete>
 	
+	<insert id="boardAdd">
+		INSERT INTO EMP (
+			EMPNO , ENAME , SAL , MANAGER , DEPTNO 
+			, HIREDATE , AGE , COMM )
+		VALUES (
+			#{empno} ,#{ename} ,#{sal} ,#{manager} ,#{deptno} 
+			,#{hiredate} ,#{age} ,#{comm})
+	</insert>
+	
+	<resultMap id="deptvo" type="com.ohhoonim.vo.DeptVo">
+		<result property="deptno" 	column="DEPTNO" />
+		<result property="dname" 	column="DNAME" />
+		<result property="loc" 	    column="LOC" />
+	</resultMap>
+	
+	<select id="deptList" resultMap="deptvo">
+		select DEPTNO, DNAME, LOC 
+		from dept
+	</select>
+	
 </mapper>
 
 
