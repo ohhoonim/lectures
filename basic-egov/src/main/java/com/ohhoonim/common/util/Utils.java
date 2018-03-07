@@ -77,10 +77,12 @@ public class Utils {
 	
 	//숫자를 원하는 포맷으로 변경
 	public static String customNum(String strNum, String format){
-		int intNum = Integer.parseInt(strNum);
-		DecimalFormat df = new DecimalFormat(format);
-		String customNum = df.format(intNum);
-		
+		String customNum = "";
+		if (strNum != null && strNum.length() > 0){
+			int intNum = Integer.parseInt(strNum);
+			DecimalFormat df = new DecimalFormat(format);
+			 customNum = df.format(intNum);
+		}
 		return customNum;
 	}
 	

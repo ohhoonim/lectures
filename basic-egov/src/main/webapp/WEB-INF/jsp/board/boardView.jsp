@@ -16,7 +16,7 @@
 		<a href="<%=contextRoot%>/board/boardRemove.do?empno=<%=empvo.getEmpno()%>">삭제</a><br/>
 		 -->
 		<a href="<%=contextRoot%>/board/boardRemove.do?empno=${empvo.empno}">삭제</a><br/>
-		<a href="<%=contextRoot%>/board/boardModifyView.do">수정화면이동</a>
+		<a href="<%=contextRoot%>/board/boardModifyView.do?empno=${empvo.empno}"">수정화면이동</a>
 		<hr>
 		empno : ${empvo.empno}<br>
 		Ename : ${empvo.ename}<br>

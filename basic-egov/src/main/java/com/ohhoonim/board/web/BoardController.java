@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ohhoonim.board.service.BoardService;
+import com.ohhoonim.common.util.Utils;
 import com.ohhoonim.vo.DeptVo;
 import com.ohhoonim.vo.EmpVo;
 
@@ -83,6 +84,9 @@ public class BoardController {
 		if ( empno == null || empno.length() < 1 
 				|| ename == null || ename.length() < 1
 				|| age == null || age.length() < 1) {
+			
+			req.put("errorMsg", "필수입력값 중 누락된 항목이 있습니다.");
+			
 			reAttr.addFlashAttribute("rtnParams", req);
 			returnStr = "redirect:/board/boardAddView.do";
 		} else {
@@ -104,14 +108,58 @@ public class BoardController {
 	
 	@RequestMapping("/board/boardModifyView.do")
 	public String boardModifyView(@RequestParam Map<String, String> req, ModelMap model ) {
+		String empno = req.get("empno");
+		
+		EmpVo empvo = boardService.boardDetail(empno);
+		List<DeptVo> deptList = boardService.deptList();
+		
+		model.addAttribute("deptList", deptList);		
+		model.addAttribute("empvo", empvo);
 		
 		return "board/boardModify";
 	}
 	
 	@RequestMapping("/board/boardModify.do")
-	public String boardModify(@RequestParam Map<String, String> req, ModelMap model ) {
+	public String boardModify(@RequestParam Map<String, String> req, RedirectAttributes reAttr ) {
+
+		String empno = Utils.toEmptyBlank(req.get("empno")); ///
 		
-		return "redirect:/board/boardList.do";
+		String returnStr = "redirect:/board/boardDetail.do?empno="+empno;
+		
+		String ename = Utils.toEmptyBlank(req.get("ename")); ///
+		String sal   = Utils.toEmptyBlank(req.get("sal"));
+		String manager  = Utils.toEmptyBlank(req.get("manager"));
+		String deptno   = Utils.toEmptyBlank(req.get("deptno"));
+		String hiredate = Utils.toEmptyBlank(req.get("hiredate"));
+		String age   = Utils.toEmptyBlank(req.get("age")); ///
+		String comm  = Utils.toEmptyBlank(req.get("comm"));
+
+		if ( empno == null || empno.length() < 1 
+				|| ename == null || ename.length() < 1
+				|| age == null || age.length() < 1) {
+			
+			req.put("errorMsg", "필수입력값 중 누락된 항목이 있습니다.");
+			
+			reAttr.addFlashAttribute("rtnParams", req);
+			returnStr = "redirect:/board/boardModifyView.do";
+		} else {
+			EmpVo vo = new EmpVo();
+			vo.setEmpno(empno);
+			vo.setEname(ename);
+			vo.setSal(sal);
+			vo.setManager(manager);
+			vo.setDeptno(deptno);
+			vo.setHiredate(hiredate);
+			vo.setAge(age);
+			vo.setComm(comm);
+			
+			int resultCnt = boardService.boardModify(vo);
+		}
+		
+		return returnStr;
+		
+		
+		
 	}
 	
 	

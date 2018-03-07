@@ -17,4 +17,6 @@ public interface BoardService {
 
 	List<DeptVo> deptList();
 
+	int boardModify(EmpVo vo);
+
 }

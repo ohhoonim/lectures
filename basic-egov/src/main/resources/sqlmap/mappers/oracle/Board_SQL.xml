@@ -53,6 +53,22 @@
 		from dept
 	</select>
 	
+	<update id="boardModify">
+		update emp
+		<set>
+			<if test="ename != null">  ENAME 		= #{ename}</if>
+			<if test="sal != null">    , SAL 		= #{sal}</if>
+			<if test="manager != null">, MANAGER 	= #{manager}</if>
+			<if test="deptno != null"> , DEPTNO 	= #{deptno}</if>
+			<if test="hiredate != null">, HIREDATE 	= #{hiredate}</if>
+			<if test="age != null">     , AGE 		= #{age}</if>
+			<if test="comm != null">    , COMM		= #{comm}</if>
+		</set>
+		where
+			empno = #{empno}
+	
+	</update>
+	
 </mapper>
 
 

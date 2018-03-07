@@ -30,4 +30,8 @@ public class BoardDao extends Mapper {
 		return selectList("Board.deptList", null);
 	}
 
+	public int boardModify(EmpVo vo) {		
+		return update("boardModify", vo);
+	}
+
 }

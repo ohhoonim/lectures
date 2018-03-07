@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <%@ page import="com.ohhoonim.vo.EmpVo" %>
+<%@ page import="com.ohhoonim.common.util.Utils" %>
 <%
 	String contextRoot = request.getContextPath();
 	List<EmpVo> list = (List<EmpVo>)request.getAttribute("list");
@@ -33,13 +34,13 @@
 			%>
 			<tr>
 				<td><a href="<%=contextRoot%>/board/boardDetail.do?empno=<%=vo.getEmpno() %>"><%=vo.getEmpno() %></a></td>
-				<td><%=vo.getEname() %></td>
-				<td><%=vo.getSal() %></td>
-				<td><%=vo.getManager() %></td>
-				<td><%=vo.getDeptno() %></td>
-				<td><%=vo.getHiredate() %></td>
-				<td><%=vo.getAge() %></td>
-				<td><%=vo.getComm() %></td>
+				<td><%=Utils.toEmptyBlank(vo.getEname()) %></td>
+				<td><%=Utils.toEmptyBlank(vo.getSal()) %></td>
+				<td><%=Utils.toEmptyBlank(vo.getManager()) %></td>
+				<td><%=Utils.toEmptyBlank(vo.getDeptno()) %></td>
+				<td><%=Utils.dateFommatter(vo.getHiredate()) %></td>
+				<td><%=Utils.toEmptyBlank(vo.getAge()) %></td>
+				<td><%=Utils.customNum(vo.getComm(), "#,##0") %></td>
 			</tr>
 			<%
 			}
