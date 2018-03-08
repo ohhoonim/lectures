@@ -4,9 +4,9 @@
 <%@ page import="com.ohhoonim.vo.DeptVo" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.ohhoonim.common.util.Utils" %>
-
+<%@ include file="/WEB-INF/jsp/inc/commonBoard.jsp" %>
 <%
-	String contextRoot = request.getContextPath();
+	
 	EmpVo empVo = (EmpVo)request.getAttribute("empvo");
 	List<DeptVo> deptList = (List<DeptVo>)request.getAttribute("deptList");
 %>

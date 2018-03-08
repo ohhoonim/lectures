@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ohhoonim.board.service.BoardService;
+import com.ohhoonim.common.util.Paging;
 import com.ohhoonim.common.util.Utils;
 import com.ohhoonim.vo.DeptVo;
 import com.ohhoonim.vo.EmpVo;
@@ -25,9 +26,31 @@ public class BoardController {
 	@RequestMapping("/board/boardList.do")
 	public String boardList(@RequestParam Map<String, String> req, ModelMap model ) {
 		
-		List<EmpVo> list = boardService.boardList();
+		String searchType = Utils.toEmptyBlank(req.get("searchType")); //empno, ename
+		String searchWord = Utils.toEmptyBlank(req.get("searchWord"));
+		String pageNo = Utils.toEmptyBlank(req.get("pageNo"));
+		String pageSize = Utils.toEmptyBlank(req.get("pageSize"));
+		
+		EmpVo empVo = new EmpVo();
+		searchType = searchType.equals("empno") && searchWord.equals("") ? "ename": "empno";
+		empVo.setSearchType(searchType);
+		empVo.setSearchWord(searchWord);
+		
+		List<EmpVo> list = boardService.boardList(empVo);
 		
 		model.addAttribute("list", list);
+		
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("searchWord", searchWord);
+		
+		Paging paging = new Paging();
+		// paging처리시에는 3가지 정보만 세팅해주면된다. 
+		paging.setPageNo(Integer.parseInt(pageNo));
+		paging.setPageSize(Integer.parseInt(pageSize));
+		// TODO :DB에서 전체게시글수를 가져오는 쿼리로 처리해줘야함.  
+		//paging.setTotalCount(totalCount);
+		
+		model.addAttribute("paging", paging);
 		
 		return "board/boardList"; 
 		// \src\main\webapp\WEB-INF\jsp\board\boardList.jsp

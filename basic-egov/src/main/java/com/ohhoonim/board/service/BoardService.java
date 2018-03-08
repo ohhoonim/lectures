@@ -7,7 +7,7 @@ import com.ohhoonim.vo.EmpVo;
 
 public interface BoardService {
 
-	List<EmpVo> boardList();
+	List<EmpVo> boardList(EmpVo empvo);
 
 	EmpVo boardDetail(String empno);
 

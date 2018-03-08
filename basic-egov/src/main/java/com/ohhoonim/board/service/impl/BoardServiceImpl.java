@@ -18,8 +18,8 @@ public class BoardServiceImpl implements BoardService {
 	BoardDao boardDao;
 	
 	@Override
-	public List<EmpVo> boardList() {
-		List<EmpVo> list = boardDao.boardList();
+	public List<EmpVo> boardList(EmpVo empvo) {
+		List<EmpVo> list = boardDao.boardList(empvo);
 		return list;
 	}
 

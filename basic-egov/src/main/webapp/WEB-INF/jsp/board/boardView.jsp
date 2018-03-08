@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.ohhoonim.vo.EmpVo"%>
+<%@ include file="/WEB-INF/jsp/inc/commonBoard.jsp" %>
 <%
-	String contextRoot = request.getContextPath();
 	EmpVo empvo = (EmpVo)request.getAttribute("empvo");
 %>
 <html>

@@ -101,7 +101,6 @@ $(function(){
 				<jsp:param name="endPageNo" value="${paging.endPageNo}" />
 				<jsp:param name="nextPageNo" value="${paging.nextPageNo}" />
 				<jsp:param name="finalPageNo" value="${paging.finalPageNo}" />
-			
 			</jsp:include>
         </div>
     </div>

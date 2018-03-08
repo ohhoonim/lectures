@@ -10,8 +10,8 @@ import com.ohhoonim.vo.EmpVo;
 @Repository("boardDao")
 public class BoardDao extends Mapper {
 
-	public List<EmpVo> boardList() {
-		return selectList("boardList", null);
+	public List<EmpVo> boardList(EmpVo empvo) {
+		return selectList("boardList", empvo);
 	}
 
 	public EmpVo boardDetail(String empno) {

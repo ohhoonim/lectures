@@ -3,8 +3,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.ohhoonim.vo.DeptVo" %>
+<%@ include file="/WEB-INF/jsp/inc/commonBoard.jsp" %>
 <%
-	String contextRoot = request.getContextPath();
 	List<DeptVo> deptList = (List<DeptVo>)request.getAttribute("deptList");
 	Map<String, String> rtnParams = (Map<String, String>)request.getAttribute("rtnParams");
 		

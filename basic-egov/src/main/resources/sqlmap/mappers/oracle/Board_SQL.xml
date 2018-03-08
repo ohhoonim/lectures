@@ -14,16 +14,28 @@
 		<result property="comm" 	column="COMM" />
 	</resultMap>
 
-	<select id="boardList" resultMap="empvo">
-		select EMPNO, ENAME, SAL, MANAGER, 
-				DEPTNO, HIREDATE, AGE, COMM 
-		  from EMP 
-	</select>
-	
-	<select id="boardDetail" resultMap="empvo">
+	<sql id="empQuery">
 		select EMPNO, ENAME, SAL, MANAGER, 
 				DEPTNO, HIREDATE, AGE, COMM 
 		  from EMP
+	</sql>
+
+	<select id="boardList" resultMap="empvo">
+		 <include refid="empQuery"/>
+		 <where>
+		 	<choose>
+		 		<when test="searchType == 'empno'">
+		 			EMPNO = #{searchWord} 
+		 		</when> 
+		 		<when test="searchType == 'ename'">
+		 			ENAME like '%' || #{searchWord} || '%'
+		 		</when>
+		 	</choose>		 
+		 </where>
+	</select>
+	
+	<select id="boardDetail" resultMap="empvo">
+		<include refid="empQuery"/>
 		  where
 		  	EMPNO = #{empno}
 	</select>
