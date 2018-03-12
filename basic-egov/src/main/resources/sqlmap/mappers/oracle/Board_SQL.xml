@@ -21,6 +21,10 @@
 	</sql>
 
 	<select id="boardList" resultMap="empvo">
+		SELECT *
+		FROM (
+			SELECT ROWNUM AS RN, A.*
+				FROM ( 
 		 <include refid="empQuery"/>
 		 <where>
 		 	<choose>
@@ -32,7 +36,31 @@
 		 		</when>
 		 	</choose>		 
 		 </where>
+		 order by empno desc
+		 ) A
+		)
+		<where>
+			<if test="pageSize != null and pageSize != '' and pageNo != null and pageNo != ''">		
+			 ROWNUM <![CDATA[ <= ]]> #{pageSize, jdbcType=INTEGER}
+				AND RN <![CDATA[ > ]]> (#{pageNo, jdbcType=INTEGER}-1)*#{pageSize, jdbcType=INTEGER}
+			</if>	
+		</where>
 	</select>
+	<select id="boardListCount2" resultType="int">
+		 select count(0) cnt from (
+		 <include refid="empQuery"/>
+		 <where>
+		 	<choose>
+		 		<when test="searchType == 'empno'">
+		 			EMPNO = #{searchWord} 
+		 		</when> 
+		 		<when test="searchType == 'ename'">
+		 			ENAME like '%' || #{searchWord} || '%'
+		 		</when>
+		 	</choose>		 
+		 </where>
+		 )
+	</select>	
 	
 	<select id="boardDetail" resultMap="empvo">
 		<include refid="empQuery"/>

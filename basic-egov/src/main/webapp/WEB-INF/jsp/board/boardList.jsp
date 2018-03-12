@@ -26,7 +26,7 @@
 				<option value="empno" <%= searchType.equals("empno") ? "selected": "" %>>사원번호</option>
 			</select>
 			<input type="text" name="searchWord" value="<%=searchWord%>">
-			<input type="hidden" name="pageNo" value="">
+			<input type="hidden" name="pageNo" value="1">
 			<input type="hidden" name="pageSize" value="10">
 			<input type="submit" value="검색">
 		</form>

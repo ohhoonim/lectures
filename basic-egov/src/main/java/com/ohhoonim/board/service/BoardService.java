@@ -19,4 +19,6 @@ public interface BoardService {
 
 	int boardModify(EmpVo vo);
 
+	int boardListCount(EmpVo empVo);
+
 }

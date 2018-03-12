@@ -31,12 +31,19 @@ public class BoardController {
 		String pageNo = Utils.toEmptyBlank(req.get("pageNo"));
 		String pageSize = Utils.toEmptyBlank(req.get("pageSize"));
 		
+		pageNo = pageNo.equals("") ? "1": pageNo;
+		pageSize = pageSize.equals("") ? "10": pageSize;
+		
 		EmpVo empVo = new EmpVo();
-		searchType = searchType.equals("empno") && searchWord.equals("") ? "ename": "empno";
+		searchType = searchType.equals("") ? "ename": searchType;
+		searchType = searchType.equals("empno") && searchWord.equals("") ? "ename": searchType;
 		empVo.setSearchType(searchType);
 		empVo.setSearchWord(searchWord);
+		empVo.setPageNo(Integer.parseInt(pageNo));
+		empVo.setPageSize(Integer.parseInt(pageSize));
 		
 		List<EmpVo> list = boardService.boardList(empVo);
+		int totalCount = boardService.boardListCount(empVo);
 		
 		model.addAttribute("list", list);
 		
@@ -47,8 +54,7 @@ public class BoardController {
 		// paging처리시에는 3가지 정보만 세팅해주면된다. 
 		paging.setPageNo(Integer.parseInt(pageNo));
 		paging.setPageSize(Integer.parseInt(pageSize));
-		// TODO :DB에서 전체게시글수를 가져오는 쿼리로 처리해줘야함.  
-		//paging.setTotalCount(totalCount);
+		paging.setTotalCount(totalCount);
 		
 		model.addAttribute("paging", paging);
 		

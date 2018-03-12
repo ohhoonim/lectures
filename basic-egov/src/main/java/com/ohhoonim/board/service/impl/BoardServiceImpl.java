@@ -52,6 +52,11 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.boardModify(vo);
 	}
 
+	@Override
+	public int boardListCount(EmpVo empVo) {
+		return boardDao.boardListCount(empVo);
+	}
+
 }
 
 

@@ -34,4 +34,8 @@ public class BoardDao extends Mapper {
 		return update("boardModify", vo);
 	}
 
+	public int boardListCount(EmpVo empVo) {
+		return selectOne("boardListCount2", empVo);
+	}
+
 }
