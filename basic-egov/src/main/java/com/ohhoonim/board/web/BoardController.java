@@ -42,8 +42,15 @@ public class BoardController {
 		empVo.setPageNo(Integer.parseInt(pageNo));
 		empVo.setPageSize(Integer.parseInt(pageSize));
 		
+		/*
 		List<EmpVo> list = boardService.boardList(empVo);
 		int totalCount = boardService.boardListCount(empVo);
+		*/
+		
+		Map<String, Object> listResult = boardService.boardList(empVo);
+		
+		List<EmpVo> list = (List<EmpVo>)listResult.get(BoardService.KEY_LIST);
+		int totalCount   = (int)listResult.get(BoardService.KEY_TOTAL_CNT);
 		
 		model.addAttribute("list", list);
 		
