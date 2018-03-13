@@ -1,6 +1,8 @@
 package com.ohhoonim.stdt.web;
 
 import java.io.File;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +39,7 @@ public class StudentController {
 	private static final Logger LOGGER = Logger.getLogger(StudentController.class);
 	public final static String KEY_LIST = "list";
 	public final static String KEY_LIST_COUNT = "listCount";
-
+	// http://localhost:8080/basic-egov/stdt/studentList.do
 	@RequestMapping("/stdt/studentList.do")
 	public String studentList(@RequestParam Map<String, String> req, ModelMap model) throws Exception{
 		String memberName = Utils.toEmptyBlank(req.get("searchName"));
@@ -68,6 +70,8 @@ public class StudentController {
 		return "stdt/studentList";
 	}
 	
+	
+	
 	@RequestMapping("/stdt/studentDetail.do")
 	public String studentDetail(@RequestParam Map<String, String> req, ModelMap model) {
 		String memberId = Utils.toEmptyBlank(req.get("memberId"));
@@ -86,21 +90,38 @@ public class StudentController {
 	}
 	
 	@RequestMapping("/stdt/studentAdd.do")
-	public String studentAdd(@RequestParam Map<String, String> req, RedirectAttributes ra) throws Exception {
+	//public String studentAdd(@RequestParam Map<String, String> req, RedirectAttributes ra) throws Exception {
+	public String studentAdd(MultipartHttpServletRequest request, RedirectAttributes ra) throws Exception {
 		
 		String redirectUrl = "redirect:/stdt/studentList.do";
 		// 필수값 체크
 		String[] keys = {"memberId", "memberPw", "memberName"};
-		if(Utils.checkParamIsEmpty(req, keys)) {
+		if( /*Utils.checkParamIsEmpty(request.getParameterMap(), keys)*/ false) {
 			redirectUrl = "redirect:/stdt/studentAddView.do";
 			Map<String, Object> redirectParam = new HashMap<String, Object>();
-			redirectParam.put("inputValues", req);
+			redirectParam.put("inputValues", request.getParameterMap());
 			redirectParam.put("failMsg", "Please check your input");
 			ra.addFlashAttribute("redirectParam", redirectParam);
 			redirectUrl = "redirect:/stdt/studentAddView.do";
 		} else {
-			StudentVo vo = Utils.mappingReqparamToVo(req, StudentVo.class);
-			int addedCnt = studentService.addStudent(vo);
+			//Map req = request.getParameterMap();
+			//StudentVo vo = Utils.mappingReqparamToVo(req, StudentVo.class);
+			StudentVo vo = new StudentVo();
+			vo.init();
+			vo.setMemberId    (request.getParameter("memberId"));
+			vo.setMemberPw    (request.getParameter("memberPw"));
+			vo.setMemberName  (request.getParameter("memberName"));
+			
+			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+			java.util.Date indate = sf.parse(request.getParameter("memberBirth"));
+			vo.setMemberBirth (new java.sql.Date(indate.getTime()));
+			
+			vo.setMemberGender(request.getParameter("memberGender"));
+			vo.setMemberEmail (request.getParameter("memberEmail"));
+			
+			MultipartFile file = request.getFile("file");
+			String contextPath = request.getContextPath();
+			int addedCnt = studentService.addStudent(vo, file, contextPath);
 		}
 		
 		return redirectUrl;
