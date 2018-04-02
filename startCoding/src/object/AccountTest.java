@@ -25,6 +25,7 @@ public class AccountTest {
 				System.out.println("입금 전 잔액 : " + acc.showBalance());
 				System.out.println("입금할 금액을 입력하세요");
 				money = scanner.nextInt();
+				
 				acc.deposit(money);
 				System.out.println("입금 후 잔액 : " + acc.showBalance());
 				break;
@@ -32,6 +33,7 @@ public class AccountTest {
 				System.out.println("출금 전 잔액 : " + acc.showBalance());
 				System.out.println("출금할 금액을 입력하세요");
 				money = scanner.nextInt();
+				//acc.balance -= money;
 				if(acc.withdraw(money)) {
 					System.out.println("출금이 되었습니다.");
 				} else {

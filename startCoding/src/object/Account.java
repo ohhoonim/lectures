@@ -2,7 +2,7 @@ package object;
 
 public class Account {
 	
-	int balance;  // ÀÜ¾×
+	private int balance;  // ÀÜ¾×
 	
 	Account (int balance) {
 		this.balance = balance;
@@ -23,6 +23,14 @@ public class Account {
 	// ÀÜ¾×Á¶È¸
 	int showBalance() {
 		return this.balance;
+	}
+	
+	public int getBalance() {
+		return this.balance;
+	}
+	
+	public void setBalance(int balance) {
+		this.balance = balance;
 	}
 	
 }
