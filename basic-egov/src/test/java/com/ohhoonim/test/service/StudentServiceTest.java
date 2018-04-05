@@ -83,10 +83,10 @@ public class StudentServiceTest {
 		assertThat(stdVo.getMemberId(), is("1000"));
 	}
 	@Test
-	public void addStudentTest() {
+	public void addStudentTest() throws Exception {
 		int insertCnt = dao.addStudent(vo);
 		when(insertCnt).thenReturn(1);
-		int expectedCnt = service.addStudent(vo);
+		int expectedCnt = service.addStudent(vo, null, null);
 		assertThat(expectedCnt, is(1));
 	}
 	@Test
