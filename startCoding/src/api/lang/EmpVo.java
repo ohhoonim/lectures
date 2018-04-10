@@ -1,9 +1,14 @@
 package api.lang;
 
-public class EmpVo {
+public class EmpVo implements Comparable<EmpVo>{
 	private String empNo;
 	private String empName;
 	private int empAge;
+	
+	@Override
+	public int compareTo(EmpVo o) {
+		return this.empAge - o.getEmpAge() ;
+	}
 	
 	public void setEmpNo(String empNo) {
 		this.empNo = empNo;
@@ -31,6 +36,7 @@ public class EmpVo {
 				+ "|" + this.empName 
 				+ "|" + this.empAge;
 	}
+	
 }
 
 
