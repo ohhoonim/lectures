@@ -1,6 +1,6 @@
 package collection.exam;
 
-public class Book {
+public class Book implements Comparable<Book>{
 	private String no       ;	
 	private String name    	;	
 	private String writer	;	
@@ -71,6 +71,12 @@ public class Book {
 				this.keyword + " | " +
 				this.year	 + " | " +
 				this.kdc	;		
+	}
+
+	// 기본 정렬 방식은 year(년도별) 
+	@Override
+	public int compareTo(Book book) {		
+		return this.year - book.getYear();
 	}
 
 }

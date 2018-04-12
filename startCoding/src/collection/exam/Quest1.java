@@ -1,6 +1,8 @@
 package collection.exam;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class Quest1 {
@@ -14,6 +16,15 @@ public class Quest1 {
 		bookList.add(new Book("CNB000000870","빠삐용","프랭클린 J. 샤프너","", 1973,"688.20942"));
 		bookList.add(new Book("CNB000000798","분노의 역류BACKDRAFT /","론 하워드 감독","", 2000,"688.20942"));
 		bookList.add(new Book("CNB000005004","시정백서 .2002 /","성남시청 기획예산과 편집.기획","시정백서 성남시", 2002,"359.1158"));
+		
+		Collections.sort(bookList, new Comparator<Book>() {
+
+			@Override
+			public int compare(Book book1, Book book2) {
+				return book1.getName().compareTo(book2.getName());
+			}
+			
+		});
 		
 		for(Book book: bookList) {
 			System.out.println(book.toString());
