@@ -123,7 +123,7 @@ public class StudentControllerTest {
 				.param("memberEmail","t")
 				;
 		
-		int addedCnt = studentService.addStudent((StudentVo)anyObject());
+		int addedCnt = studentService.addStudent((StudentVo)anyObject(), null, null);
 		when(addedCnt).thenReturn(1);		
 		
 		mockMvc.perform(calledUrl)
