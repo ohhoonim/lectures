@@ -17,18 +17,18 @@ public class StringTest {
 	public void indexOfTest() {
 		String str = "start coding";
 		assertThat(str.indexOf("a"), is(2));
-		assertThat(str.indexOf("t"), is(1)); // Á¦ÀÏ Ã³À½ ¹ß°ßµÈ ±ÛÀÚÀÇ ÀÎµ¦½º¸¦ °¡Á®¿È.
-		assertThat(str.indexOf("t", 3), is(4)); // 3 indexºÎÅÍ ½ÃÀÛÇÏ¿© Ã³À½ ¹ß°ßµÈ ±ÛÀÚÀÇ ÀÎµ¦½º¸¦ °¡Á®¿È.
+		assertThat(str.indexOf("t"), is(1)); // ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ßµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
+		assertThat(str.indexOf("t", 3), is(4)); // 3 indexï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ Ã³ï¿½ï¿½ ï¿½ß°ßµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 	}
 	
 	@Test
 	public void changeTypeCharToStringTest() {
-		// ¹®ÀÚ¿­ "a"¿Í charÇü 'a'´Â °°Áö ¾Ê´Ù.
+		// ï¿½ï¿½ï¿½Ú¿ï¿½ "a"ï¿½ï¿½ charï¿½ï¿½ 'a'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½.
 		assertFalse( "a".equals('a'));
 		
-		// charÇüÀ» StringÇüÀ¸·Î º¯È¯ÇÏ´Â ¹æ¹ý
-		assertTrue("a".equals('a'+"")); // µÚ¿¡´Ù ""(emptyp blank)¸¦ ºÙ¿©ÁØ´Ù.
-		assertTrue("a".equals(String.valueOf('a'))); // valueOf() ¸Þ¼Òµå »ç¿ë
+		// charï¿½ï¿½ï¿½ï¿½ Stringï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
+		assertTrue("a".equals('a'+"")); // ï¿½Ú¿ï¿½ï¿½ï¿½ ""(emptyp blank)ï¿½ï¿½ ï¿½Ù¿ï¿½ï¿½Ø´ï¿½.
+		assertTrue("a".equals(String.valueOf('a'))); // valueOf() ï¿½Þ¼Òµï¿½ ï¿½ï¿½ï¿½
 		
 	}
 	
@@ -41,8 +41,8 @@ public class StringTest {
 		assertThat(str2, is("start coding"));
 		
 		assertFalse(str1 == str2); 
-		// ´ã°íÀÖ´Â °ªÀº µ¿ÀÏÇÑ ³»¿ëÀÌÁö¸¸ °´Ã¼°¡ ´Ù¸£±â ¶§¹®¿¡ °°Áö ¾Ê´Ù°í ÀÎ½ÄÇÑ´Ù.
-		// °´Ã¼°¡ ´ã°íÀÖ´Â °ª¸¸ °°ÀºÁö ¿©ºÎ¸¦ ¾Ë°í½ÍÀ» ¶§¿¡´Â equals() ¸Þ¼Òµå¸¦ »ç¿ëÇÑ´Ù. 
+		// ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´Ù°ï¿½ ï¿½Î½ï¿½ï¿½Ñ´ï¿½.
+		// ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½Ë°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ equals() ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 		assertTrue(str1.equals(str2));
 	}
 	
@@ -57,7 +57,7 @@ public class StringTest {
 	public void containsTest() {
 		String str = "start coding";
 		assertTrue(str.contains("start"));
-		assertFalse(str.contains("srt"));  // srt ¶ó´Â ±ÛÀÚ´Â Æ÷ÇÔÇÏ°í ÀÖÁö ¾Ê´Ù. 
+		assertFalse(str.contains("srt"));  // srt ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ú´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½. 
 	}
 	
 	@Test
@@ -68,14 +68,14 @@ public class StringTest {
 	
 	@Test
 	public void formatTest() {
-		String formatedStr = String.format("%4s ³â %2s ¿ù %2s ÀÏ", "2018", "2", "28");
-		assertThat(formatedStr, is("2018 ³â  2 ¿ù 28 ÀÏ"));
+		String formatedStr = String.format("%4s ï¿½ï¿½ %2s ï¿½ï¿½ %2s ï¿½ï¿½", "2018", "2", "28");
+		assertThat(formatedStr, is("2018 ï¿½ï¿½  2 ï¿½ï¿½ 28 ï¿½ï¿½"));
 		/*
-		 %s : ¹®ÀÚ¿­ Ä¡È¯
-		 %d : ¼ýÀÚ Ä¡È¯
+		 %s : ï¿½ï¿½ï¿½Ú¿ï¿½ Ä¡È¯
+		 %d : ï¿½ï¿½ï¿½ï¿½ Ä¡È¯
 		 
-		 %2s <== ¹®ÀÚ¿­À» Ä¡È¯ÇÒ ¶§ 2ÀÚ¸®¸¦ È®º¸ÇÔ
-		 %4d <== ¼ýÀÚ¸¦ Ä¡È¯ÇÒ ¶§ 4ÀÚ¸®¸¦ È®º¸ÇÔ		 
+		 %2s <== ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ Ä¡È¯ï¿½ï¿½ ï¿½ï¿½ 2ï¿½Ú¸ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½
+		 %4d <== ï¿½ï¿½ï¿½Ú¸ï¿½ Ä¡È¯ï¿½ï¿½ ï¿½ï¿½ 4ï¿½Ú¸ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½ï¿½		 
 		 */
 	}
 	
@@ -85,11 +85,11 @@ public class StringTest {
 		assertTrue(str.isEmpty());
 		
 		if (str.length() == 0) {
-			//System.out.println("¹®ÀÚ¿­ÀÌ ºñ¾ú½À´Ï´Ù.");
+			//System.out.println("ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 		}
 		
 		str = null;
-//		assertTrue(str.isEmpty());  // <== ÀÌ·¸°Ô´Â ¾µ¼ö¾ø´Ù. str ÀÚÃ¼°¡ nullÀÌ¹Ç·Î 
+//		assertTrue(str.isEmpty());  // <== ï¿½Ì·ï¿½ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. str ï¿½ï¿½Ã¼ï¿½ï¿½ nullï¿½Ì¹Ç·ï¿½ 
 	}
 	
 	@Test
@@ -124,14 +124,14 @@ public class StringTest {
 		String afterReplaced2 = str.replace("t", "T");
 		assertThat(afterReplaced2, is("sTarT coding"));
 		
-		str = "´ëÇÑ¹Î±¹ ÆòÃ¢ µ¿°è¿Ã¸²ÇÈ";
-		assertThat(str.replace("ÆòÃ¢", "Æò¾ç"), is("´ëÇÑ¹Î±¹ Æò¾ç µ¿°è¿Ã¸²ÇÈ"));
+		str = "ï¿½ï¿½ï¿½Ñ¹Î±ï¿½ ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½";
+		assertThat(str.replace("ï¿½ï¿½Ã¢", "ï¿½ï¿½ï¿½"), is("ï¿½ï¿½ï¿½Ñ¹Î±ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½"));
 		
 		str = "start coding";
 		assertThat(str.replaceAll("t", "T")   , is("sTarT coding"));
 		assertThat(str.replaceFirst("t",  "T"), is("sTart coding"));
 			
-		// ¹®ÀÚ¿­¿¡¼­ ÀÏºÎ ¿µ¿ªÀ» ´Ù¸¥ ¹®ÀÚ·Î ´ëÄ¡ÇÏ±â
+		// ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ïºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½Ä¡ï¿½Ï±ï¿½
 		
 	}
 	
@@ -141,7 +141,7 @@ public class StringTest {
 		           // 0123456789
 		assertThat(str.substring(6), is("coding"));
 		assertThat(str.substring(3, 8), is("rt co"));  
-		// ½ÃÀÛÀÎµ¦½º ÀÌ»ó ³¡ÀÎµ¦½º ¹Ì¸¸
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 		
 		assertThat(str.substring(str.indexOf("a")), is("art coding"));
 		
@@ -169,8 +169,8 @@ public class StringTest {
 		for (int i = 0; i < 10000; i++) {
 			str += i + "\t";
 		}
-		// ÀÌ·¸°Ô »ç¿ëÇÏ°Ô µÇ¸é String °´Ã¼°¡ 10000°³
-		// »ý¼ºµÇ¹Ç·Î ¸Þ¸ð¸®°¡ ºñÈ¿À²ÀûÀ¸·Î °ü¸®µÈ´Ù. 
+		// ï¿½Ì·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ç¸ï¿½ String ï¿½ï¿½Ã¼ï¿½ï¿½ 10000ï¿½ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹Ç·ï¿½ ï¿½Þ¸ð¸®°ï¿½ ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½. 
 	}
 	
 	@Test
@@ -182,15 +182,15 @@ public class StringTest {
 		
 		String str = "start coding";
 		str += " first"; 
-		// ==> "start coding", " first", "start coding first" 3°³ÀÇ °´Ã¼°¡ ¸Þ¸ð¸®¿¡ ³²¾ÆÀÖ´Ù.		
-		// ==> sb.append¸¦ ÀÌ¿ëÇÏ¸é "start coding" ÀÚÃ¼°¡ "start coding first" ·Î º¯°æµÈ °ÍÀÌ´Ù.
+		// ==> "start coding", " first", "start coding first" 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½Þ¸ð¸®¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½.		
+		// ==> sb.appendï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½Ï¸ï¿½ "start coding" ï¿½ï¿½Ã¼ï¿½ï¿½ "start coding first" ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 		
-		// ÄÚµùÇÒ ¶§ ÁÖÀÇÇÒ Á¡.
-		// 1. append ÈÄ¿¡´Â ¹Ýµå½Ã ´Ù½Ã º¯¼ö¿¡ ÀúÀåÇØ ÁÖ¾î¾ßÇÑ´Ù. 
+		// ï¿½Úµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
+		// 1. append ï¿½Ä¿ï¿½ï¿½ï¿½ ï¿½Ýµï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½Ñ´ï¿½. 
 		sb = sb.append(" test");
-		// 2. append ÇÒ ¶§ ÆÄ¶ó¹ÌÅÍ¾È¿¡¼­ '+' ¿¬»êÀÚ¸¦ »ç¿ëÇÏ¸é ¾ÈµÈ´Ù. 
-		sb = sb.append("test" + "second");  //<== String ¿¬»êÀ» ÇÑ °Í°ú µ¿ÀÏÇÏ°Ô µÈ´Ù.
-		// ==> ¾Æ·¡¿Í °°ÀÌ ºÐ¸®ÇØÁØ´Ù. 
+		// 2. append ï¿½ï¿½ ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í¾È¿ï¿½ï¿½ï¿½ '+' ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ÈµÈ´ï¿½. 
+		sb = sb.append("test" + "second");  //<== String ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
+		// ==> ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½Ø´ï¿½. 
 		sb = sb.append("test");
 		sb = sb.append("second");
 	}
@@ -221,12 +221,12 @@ public class StringTest {
 		int c = 4;
 		
 		assertThat(a + b + c, is(7));
-		assertThat("ÃÑÁ¡" + a + b + c, is("ÃÑÁ¡124"));
-		assertThat("ÃÑÁ¡" + (a + b + c), is("ÃÑÁ¡7"));
-		assertThat( a + b + "-" +  c + "ÃÑÁ¡", is("3-4ÃÑÁ¡"));
+		assertThat("ï¿½ï¿½ï¿½ï¿½" + a + b + c, is("ï¿½ï¿½ï¿½ï¿½124"));
+		assertThat("ï¿½ï¿½ï¿½ï¿½" + (a + b + c), is("ï¿½ï¿½ï¿½ï¿½7"));
+		assertThat( a + b + "-" +  c + "ï¿½ï¿½ï¿½ï¿½", is("3-4ï¿½ï¿½ï¿½ï¿½"));
 	}
 
-	/** git commit test */
+	/** git commit test 2*/ 
 }
 
 
