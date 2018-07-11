@@ -225,6 +225,8 @@ public class StringTest {
 		assertThat("ÃÑÁ¡" + (a + b + c), is("ÃÑÁ¡7"));
 		assertThat( a + b + "-" +  c + "ÃÑÁ¡", is("3-4ÃÑÁ¡"));
 	}
+
+	/** git commit test */
 }
 
 
