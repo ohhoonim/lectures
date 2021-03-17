@@ -14,9 +14,9 @@ public class RoomType {
 		StringBuffer sb = new StringBuffer();
 		sb = sb.append("(");
 		sb = sb.append(this.roomSize);
-		sb = sb.append("Æò/");
+		sb = sb.append("ï¿½ë£Š/");
 		sb = sb.append(this.price);
-		sb = sb.append("¿ø)");
+		sb = sb.append("ï¿½ì)");
 		return sb.toString();
 	}
 }

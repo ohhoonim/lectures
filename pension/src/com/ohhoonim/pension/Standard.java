@@ -8,7 +8,7 @@ public class Standard extends RoomType {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb = sb.append("½ºÅÄ´Ùµå·ë ");
+		sb = sb.append("ìŠ¤íƒ ë‹¤ë“œë£¸ ");
 		sb = sb.append(super.toString());
 		return sb.toString();
 	}

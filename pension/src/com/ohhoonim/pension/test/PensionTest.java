@@ -11,28 +11,28 @@ public class PensionTest {
 		while (true) {
 			try {
 				WorkshopUtil.printHeader();			
-				String input = WorkshopUtil.getUserInput("# ¸Þ´º¸¦ ÀÔ·ÂÇÏ¼¼¿ä >> ");
+				String input = WorkshopUtil.getUserInput("# ë©”ë‰´ë¥¼ ìž…ë ¥í•˜ì„¸ìš” >> ");
 				
 				switch(input) {
-				case "0": // Á¾·á
+				case "0": // ì¢…ë£Œ
 					System.out.println("Bye~ Bye");
 					System.exit(0);
 					break;
-				case "1": // ÀüÃ¼ ¹æ Á¶È¸
+				case "1": // ì „ì²´ ë°© ì¡°íšŒ
 					biz.roomList();
 					break;
-				case "2": // ÀÔ½Ç
-					String inRoomId = WorkshopUtil.getUserInput("Åõ¼÷ÇÏ½Ç ¹æ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. >>");
-					String custName = WorkshopUtil.getUserInput("°í°´´ÔÀÇ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä >> ");
-					String custPhone = WorkshopUtil.getUserInput("°í°´´ÔÀÇ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä >> ");
+				case "2": // ìž…ì‹¤
+					String inRoomId = WorkshopUtil.getUserInput("íˆ¬ìˆ™í•˜ì‹¤ ë°© ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”. >>");
+					String custName = WorkshopUtil.getUserInput("ê³ ê°ë‹˜ì˜ ì´ë¦„ì„ ìž…ë ¥í•˜ì„¸ìš” >> ");
+					String custPhone = WorkshopUtil.getUserInput("ê³ ê°ë‹˜ì˜ ì „í™”ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš” >> ");
 					biz.checkIn(inRoomId, custName, custPhone);
 					break;
-				case "3": // Åð½Ç
-					String outRoomId = WorkshopUtil.getUserInput("Åð½ÇÇÏ½Ç ¹æ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. >>");
+				case "3": // í‡´ì‹¤
+					String outRoomId = WorkshopUtil.getUserInput("í‡´ì‹¤í•˜ì‹¤ ë°© ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”. >>");
 					biz.checkOut(outRoomId);
 					break;
 				default:
-					System.out.println("¸Þ´º°¡ ¾ø½À´Ï´Ù.");
+					System.out.println("ë©”ë‰´ê°€ ì—†ìŠµë‹ˆë‹¤.");
 				}
 			} catch (Exception e) {
 				System.out.println(e.getMessage());

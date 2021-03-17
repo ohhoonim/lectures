@@ -13,9 +13,9 @@ public class Customer {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb = sb.append("ÇöÀç Åõ¼÷°´ - [ÀÌ¸§] ");
+		sb = sb.append("í˜„ì¬ íˆ¬ìˆ™ê° - [ì´ë¦„] ");
 		sb = sb.append(this.name);
-		sb = sb.append(" [ÀüÈ­¹øÈ£] ");
+		sb = sb.append(" [ì „í™”ë²ˆí˜¸] ");
 		sb = sb.append(this.phone);
 		return sb.toString();
 	}

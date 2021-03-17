@@ -16,11 +16,11 @@ public class PensionBiz implements IPensionBiz {
 	
 	@Override
 	public void checkIn(String roomId, String custName, String custPhone) throws Exception {
-		// ¹æ¹øÈ£°¡ ¼ıÀÚ°¡ ¾Æ´Ñ °æ¿ì 
+		// ë°©ë²ˆí˜¸ê°€ ìˆ«ìê°€ ì•„ë‹Œ ê²½ìš° 
 		try {
 			Integer.parseInt(roomId);
 		} catch(Exception e) {
-			throw new RuntimeException("[¿¡·¯] ¹æ ¹øÈ£´Â ¼ıÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä.");
+			throw new RuntimeException("[ì—ëŸ¬] ë°© ë²ˆí˜¸ëŠ” ìˆ«ìë¡œ ì…ë ¥í•˜ì„¸ìš”.");
 		}
 
 		Customer.index = 201;
@@ -30,31 +30,31 @@ public class PensionBiz implements IPensionBiz {
 			if (room == null) {
 				continue;
 			} 
-			// Åõ¼÷°´ °Ë»ç
+			// íˆ¬ìˆ™ê° ê²€ì‚¬
 			Set<String> keys = roomInfo.keySet();
 			if (keys.size() > 1) {
-				throw new RuntimeException("[¿¡·¯] ÀÌ¹Ì Åõ¼÷ ÁßÀÎ ¹æÀÔ´Ï´Ù.");
+				throw new RuntimeException("[ì—ëŸ¬] ì´ë¯¸ íˆ¬ìˆ™ ì¤‘ì¸ ë°©ì…ë‹ˆë‹¤.");
 			} else {
 				roomInfo.put(String.valueOf(Customer.index), new Customer(custName, custPhone));
 				finedRoom = true;
 				break;
 			}
 		}
-		// ¹æÀ» ¸øÃ£¾ÒÀ» ½Ã
+		// ë°©ì„ ëª»ì°¾ì•˜ì„ ì‹œ
 		if (!finedRoom) {
-			throw new RuntimeException("[¿¡·¯] Á¤È®ÇÑ ¹æ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			throw new RuntimeException("[ì—ëŸ¬] ì •í™•í•œ ë°© ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		} else {
-			System.out.println("@ ¿¹¾àµÇ¾ú½À´Ï´Ù.");
+			System.out.println("@ ì˜ˆì•½ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 	}
 
 	@Override
 	public void checkOut(String roomId) throws Exception {
-		// ¹æ¹øÈ£°¡ ¼ıÀÚ°¡ ¾Æ´Ñ °æ¿ì 
+		// ë°©ë²ˆí˜¸ê°€ ìˆ«ìê°€ ì•„ë‹Œ ê²½ìš° 
 		try {
 			Integer.parseInt(roomId);
 		} catch(Exception e) {
-			throw new RuntimeException("[¿¡·¯] ¹æ ¹øÈ£´Â ¼ıÀÚ·Î ÀÔ·ÂÇÏ¼¼¿ä.");
+			throw new RuntimeException("[ì—ëŸ¬] ë°© ë²ˆí˜¸ëŠ” ìˆ«ìë¡œ ì…ë ¥í•˜ì„¸ìš”.");
 		}
 
 		Customer.index = 201;
@@ -64,26 +64,26 @@ public class PensionBiz implements IPensionBiz {
 			if (room == null) {
 				continue;
 			} 
-			// Åõ¼÷°´ °Ë»ç
+			// íˆ¬ìˆ™ê° ê²€ì‚¬
 			Set<String> keys = roomInfo.keySet();
 			if (keys.size() < 2) {
-				throw new RuntimeException("[¿¡·¯] ÀÌ¹Ì Åğ½ÇµÇÀÖ½À´Ï´Ù.");
+				throw new RuntimeException("[ì—ëŸ¬] ì´ë¯¸ í‡´ì‹¤ë˜ìˆìŠµë‹ˆë‹¤.");
 			} else {
 				roomInfo.remove(String.valueOf(Customer.index));
 				finedRoom = true;
 				break;
 			}
 		}
-		// ¹æÀ» ¸øÃ£¾ÒÀ» ½Ã
+		// ë°©ì„ ëª»ì°¾ì•˜ì„ ì‹œ
 		if (!finedRoom) {
-			throw new RuntimeException("[¿¡·¯] Á¤È®ÇÑ ¹æ ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			throw new RuntimeException("[ì—ëŸ¬] ì •í™•í•œ ë°© ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		} else {
-			System.out.println("@ Åğ½ÇµÇ¾ú½À´Ï´Ù.");
+			System.out.println("@ í‡´ì‹¤ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		}
 	}
 
 	/**
-	 * ¸ğµç ¹æÀÇ Á¤º¸¸¦ ÃÊ±âÈ­
+	 * ëª¨ë“  ë°©ì˜ ì •ë³´ë¥¼ ì´ˆê¸°í™”
 	 */
 	@Override
 	public void initiallizeRoomData() {
@@ -125,7 +125,7 @@ public class PensionBiz implements IPensionBiz {
 					roomId = key;
 				}
 			}
-			System.out.println(roomId + "È£ : " + infos[0] + " " + (infos[1] == null ? "" : infos[1]));
+			System.out.println(roomId + "í˜¸ : " + infos[0] + " " + (infos[1] == null ? "" : infos[1]));
 		}
 	}
 }

@@ -10,11 +10,11 @@ public class WorkshopUtil {
 	};
 	
 	public static void printHeader() {
-		System.out.println("======<< Ãá Ææ¼Ç °ü¸® ½Ã½ºÅÛ>>======");
-		System.out.println("1. ÀüÃ¼ ¹æ Á¶È¸");
-		System.out.println("2. ÀÔ½Ç");
-		System.out.println("3. Åð½Ç");
-		System.out.println("0. Á¾·á");
+		System.out.println("======<< ì¶˜ íŽœì…˜ ê´€ë¦¬ ì‹œìŠ¤í…œ>>======");
+		System.out.println("1. ì „ì²´ ë°© ì¡°íšŒ");
+		System.out.println("2. ìž…ì‹¤");
+		System.out.println("3. í‡´ì‹¤");
+		System.out.println("0. ì¢…ë£Œ");
 		System.out.println("===============================");
 	}
 }

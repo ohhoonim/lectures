@@ -8,7 +8,7 @@ public class Sweet extends RoomType {
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
-		sb = sb.append("½ºÀ§Æ®·ë ");
+		sb = sb.append("ìŠ¤ìœ„íŠ¸ë£¸ ");
 		sb = sb.append(super.toString());
 		return sb.toString();
 	}
